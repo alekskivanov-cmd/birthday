@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Oswald:wght@500;600;700&family=Caveat:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=4" />
 </head>
 <body>
   <main class="story">
@@ -74,16 +74,13 @@
 
       <p class="gift-copy reveal">Поэтому тебе в любой удобный день доступен СПА-комплекс “Sweet coffee”.</p>
 
-      <div class="ticket reveal" id="ticket">
-        <div class="ticket-left">
-          <small>ADMIT ONE</small>
-          <b>SWEET COFFEE</b>
-          <span>ONE DAY OFF</span>
-          <em>VALID: WHENEVER YOU WANT</em>
-        </div>
-        <div class="ticket-photo"></div>
-        <div class="barcode"></div>
-      </div>
+      <button class="ticket reveal" id="ticket" type="button" aria-label="Показать сертификат" aria-pressed="false">
+        <span class="ticket-inner">
+          <span class="ticket-face ticket-front" aria-hidden="true"></span>
+          <span class="ticket-face ticket-back"><img src="assets/certificate.jpg" alt="Подарочный сертификат Dusha spa & relax, SPA-комплекс Sweet Coffee" /></span>
+        </span>
+      </button>
+      <span class="ticket-hint">НАЖМИ НА БИЛЕТ ↻</span>
 
       <p class="certificate reveal">Сам сертификат я пришлю тебе,<br>когда понадобится.</p>
 
@@ -92,6 +89,6 @@
     </section>
 
   </main>
-  <script src="script.js"></script>
+  <script src="script.js?v=4"></script>
 </body>
 </html>
