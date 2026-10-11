@@ -58,3 +58,9 @@ body{margin:0;font-family:Inter,Arial,sans-serif;overflow-x:hidden}
 @font-face{font-family:Narrow;src:url('assets/narrow.otf') format('opentype');font-display:swap}
 .birthday{font-size:27cqw;line-height:.98;width:156%;left:-28%;letter-spacing:-.08em;transform:scaleX(.60)!important}
 .slow,.sweet{font-family:Narrow,Oswald,Impact,sans-serif;font-size:37cqw;letter-spacing:-.035em;line-height:.85;transform:scaleX(.95)!important}.slow{font-size:38cqw;top:13%}.sweet{font-size:36cqw;top:16%}
+
+/* Center the compressed heading around the center of the screen. */
+.birthday{left:50%;width:156%;transform-origin:center top;transform:translateX(-50%) scaleX(.60)!important;text-align:center}
+.panel.visible .birthday{transform:translateX(-50%) scaleX(.60)!important}
+/* Keep the gift title in front of all photographic and decorative layers. */
+.gift .sweet{z-index:10}
