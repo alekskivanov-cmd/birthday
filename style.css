@@ -78,3 +78,22 @@ body{margin:0;font-family:Inter,Arial,sans-serif;overflow-x:hidden}
 .gift .ticket:focus-visible{outline:2px solid #fff;outline-offset:6px}
 .ticket-hint{position:absolute;top:77%;left:0;width:100%;text-align:center;font-size:2cqw;letter-spacing:.18em;color:#ccc;z-index:8}
 @media(prefers-reduced-motion:reduce){.gift .ticket .ticket-inner{transition:none}}
+
+/* Birthday surprises: native keyboard-accessible buttons and modal overlays. */
+.text-secret,.slow{border:0;padding:0;background:none;color:inherit;cursor:pointer;font:inherit}
+.text-secret{font-size:inherit;line-height:inherit;text-align:inherit}
+button.slow{font-family:Narrow,Oswald,Impact,sans-serif;font-size:38cqw;font-weight:900;line-height:.85;letter-spacing:-.035em;text-align:left}
+.text-secret:focus-visible,.slow:focus-visible{outline:1px solid currentColor;outline-offset:6px}
+.surprise-dialog{box-sizing:border-box;width:min(88vw,440px);max-height:88svh;overflow:auto;padding:42px 26px 28px;background:#080808;color:#f5f3ed;border:1px solid #888;font-family:Inter,Arial,sans-serif;text-align:center;box-shadow:0 15px 90px #0008}
+.surprise-dialog::backdrop{background:#000c;backdrop-filter:blur(5px)}
+.dialog-close{position:absolute;right:12px;top:8px;background:none;border:0;color:inherit;font-size:30px;cursor:pointer}
+.dialog-label{font-size:9px;letter-spacing:.2em;color:#aaa;margin-bottom:28px}
+.surprise-dialog h2{font-size:clamp(21px,6vw,30px);line-height:1.15;margin:0 0 20px;font-weight:900}
+.surprise-dialog p{font-size:17px;line-height:1.5;margin:0 0 24px}
+.dialog-done{background:#f4f2ec;color:#080808;border:0;padding:14px 18px;font-size:10px;letter-spacing:.14em;cursor:pointer}
+.breathing-orbit{height:210px;display:grid;place-items:center;margin:10px auto 18px}
+.breathing-circle{width:110px;height:110px;border:1px solid #eee;border-radius:50%;background:radial-gradient(circle,#fff2,transparent 70%);animation:breathe 8s ease-in-out infinite}
+.surprise-dialog .breathing-note{font-size:12px;color:#aaa;line-height:1.65}
+@keyframes breathe{0%,100%{transform:scale(.75);opacity:.55}50%{transform:scale(1.5);opacity:1}}
+[hidden]{display:none!important}
+@media(prefers-reduced-motion:reduce){.breathing-circle{animation:none;transform:none}}

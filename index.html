@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Oswald:wght@500;600;700&family=Caveat:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=4" />
+  <link rel="stylesheet" href="style.css?v=5" />
 </head>
 <body>
   <main class="story">
@@ -21,7 +21,7 @@
       </div>
 
       <div class="intro-copy reveal">
-        <p>Возможно, в будущем<br>искусственный интеллект<br>нас и убьет,</p>
+        <p>Возможно, в будущем<br><button class="text-secret" id="ai-secret" type="button" aria-label="Секрет искусственного интеллекта">искусственный интеллект</button><br>нас и убьет,</p>
         <p>но сегодня он помог мне<br>поздравить тебя</p>
       </div>
 
@@ -42,7 +42,7 @@
         <i></i>
       </div>
 
-      <div class="slow reveal">SLOW<br>DOWN.</div>
+      <button class="slow reveal" id="slow-mode" type="button" aria-label="Сделать паузу">SLOW<br>DOWN.</button>
       <div class="aside">GOOD<br>PEOPLE<br>REST<br>BETTER</div>
 
       <div class="pause-copy reveal">
@@ -89,6 +89,15 @@
     </section>
 
   </main>
-  <script src="script.js?v=4"></script>
+  <dialog class="surprise-dialog" id="surprise-dialog" aria-labelledby="surprise-title">
+    <button class="dialog-close" type="button" aria-label="Закрыть">×</button>
+    <div class="dialog-label">BIRTHDAY EDITION / BONUS</div>
+    <h2 id="surprise-title"></h2>
+    <p id="surprise-copy" aria-live="polite"></p>
+    <div class="breathing-orbit" hidden><div class="breathing-circle"></div></div>
+    <p class="breathing-note" hidden>Вдох — круг растёт.<br>Выдох — круг уменьшается.<br>Дыши в удобном для тебя темпе.</p>
+    <button class="dialog-done" type="button">ПРОДОЛЖИТЬ</button>
+  </dialog>
+  <script src="script.js?v=5"></script>
 </body>
 </html>
