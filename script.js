@@ -105,3 +105,19 @@ programDialog.addEventListener('click', e => {
   const r = programDialog.getBoundingClientRect();
   if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) programDialog.close();
 });
+
+const discoveryTip = document.getElementById('discovery-tip');
+const discoveryKey = 'birthday-surprises-discovered-v1';
+let tipDismissed = false;
+try { tipDismissed = localStorage.getItem(discoveryKey) === 'yes'; } catch (_) {}
+const discoveryTimer = setTimeout(() => { if (!tipDismissed) discoveryTip.hidden = false; }, 1800);
+function dismissDiscoveryTip() {
+  tipDismissed = true;
+  clearTimeout(discoveryTimer);
+  discoveryTip.hidden = true;
+  try { localStorage.setItem(discoveryKey, 'yes'); } catch (_) {}
+}
+document.getElementById('discovery-dismiss').addEventListener('click', dismissDiscoveryTip);
+['ai-secret', 'slow-mode', 'spa-program-open'].forEach(id => {
+  document.getElementById(id).addEventListener('click', dismissDiscoveryTip);
+});
