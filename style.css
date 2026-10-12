@@ -97,3 +97,15 @@ button.slow{font-family:Narrow,Oswald,Impact,sans-serif;font-size:38cqw;font-wei
 @keyframes breathe{0%,100%{transform:scale(.75);opacity:.55}50%{transform:scale(1.5);opacity:1}}
 [hidden]{display:none!important}
 @media(prefers-reduced-motion:reduce){.breathing-circle{animation:none;transform:none}}
+
+/* Subtle discovery cues; pulse never changes the heading's layout. */
+.text-secret{text-decoration:underline;text-decoration-style:dotted;text-decoration-thickness:1px;text-underline-offset:5px;animation:secret-pulse 4s ease-in-out infinite}
+.panel.visible button.slow{animation:secret-pulse 5s ease-in-out infinite;animation-delay:1s}
+.ai-hint{position:absolute;top:29%;left:0;width:100%;text-align:center;font-size:1.8cqw;letter-spacing:.07em;color:#bcbcb7;z-index:7;pointer-events:none}
+.slow-hint{position:absolute;top:43%;left:7%;font-size:2cqw;letter-spacing:.09em;color:#555;z-index:6;pointer-events:none}
+@keyframes secret-pulse{0%,100%{opacity:1}50%{opacity:.58}}
+.text-secret:hover,.text-secret:focus-visible,button.slow:hover,button.slow:focus-visible{animation:none;opacity:1}
+.vinyl-decoration{position:fixed;right:max(12px,env(safe-area-inset-right));bottom:max(12px,env(safe-area-inset-bottom));z-index:15;display:flex;flex-direction:column;align-items:center;gap:5px;pointer-events:none}
+.vinyl-record{display:block;width:36px;height:36px;border-radius:50%;border:1px solid #999;background:radial-gradient(circle,#080808 0 2px,#ece8df 2.5px 7px,#181818 7.5px 9px,transparent 9.5px),repeating-radial-gradient(circle,#101010 0 1px,#333 1px 1.5px,#101010 1.5px 3px);box-shadow:0 2px 8px #0005}
+.vinyl-label{font:7px Arial,sans-serif;letter-spacing:.15em;color:#f1eee8;background:#111;padding:3px 5px}
+@media(prefers-reduced-motion:reduce){.text-secret,.panel.visible button.slow{animation:none}}
