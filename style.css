@@ -179,3 +179,7 @@ button.slow{position:absolute}.sweet-title-button{position:relative}
 /* Program label shares the upper line with the introductory caption. */
 .gift .therefore{width:84%;display:flex;align-items:baseline;justify-content:space-between;gap:3cqw;font-size:3.1cqw;white-space:nowrap}
 .program-top-label{font:inherit;letter-spacing:inherit;line-height:inherit}
+
+/* Keep both upper captions above the leaf decoration. */
+.gift .therefore{z-index:11;letter-spacing:.16em}
+.program-top-label{position:relative;display:block;flex-shrink:0;color:inherit;opacity:1}
