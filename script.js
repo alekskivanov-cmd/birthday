@@ -45,6 +45,8 @@ const ticket = document.getElementById('ticket');
 const hint = document.querySelector('.ticket-hint');
 function flipTicket() {
   const flipped = ticket.classList.toggle('is-flipped');
+  document.getElementById('save-certificate').hidden = !flipped;
+  document.querySelector('.certificate').hidden = flipped;
   ticket.setAttribute('aria-pressed', String(flipped));
   ticket.setAttribute('aria-label', flipped ? 'Вернуть билет' : 'Показать сертификат');
   hint.textContent = flipped ? 'НАЖМИ, ЧТОБЫ ВЕРНУТЬ БИЛЕТ ↻' : 'НАЖМИ НА БИЛЕТ ↻';
