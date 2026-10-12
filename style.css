@@ -175,3 +175,7 @@ button.slow{position:absolute}.sweet-title-button{position:relative}
 .discovery-tip b{font-size:20px;vertical-align:middle;margin-left:4px}
 .discovery-tip button{position:absolute;top:7px;right:9px;border:0;background:none;color:inherit;font-size:25px;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .discovery-tip button:focus-visible{outline:1px solid #aaa;border-radius:50%}
+
+/* Program label shares the upper line with the introductory caption. */
+.gift .therefore{width:84%;display:flex;align-items:baseline;justify-content:space-between;gap:3cqw;font-size:3.1cqw;white-space:nowrap}
+.program-top-label{font:inherit;letter-spacing:inherit;line-height:inherit}
