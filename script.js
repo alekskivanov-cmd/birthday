@@ -143,3 +143,16 @@ worldPause.querySelector('.world-pause-button').addEventListener('click', () => 
   }, reduced ? 0 : 900);
 });
 dialog.addEventListener('close', () => clearTimeout(worldPauseTimer));
+
+const birthdayDialog = document.getElementById('birthday-message-dialog');
+document.getElementById('birthday-message-open').addEventListener('click', () => {
+  birthdayDialog.showModal();
+  dismissDiscoveryTip();
+});
+birthdayDialog.querySelector('.dialog-close').addEventListener('click', () => birthdayDialog.close());
+birthdayDialog.querySelector('.birthday-toast-done').addEventListener('click', () => birthdayDialog.close());
+birthdayDialog.addEventListener('click', e => {
+  if (e.target !== birthdayDialog) return;
+  const r = birthdayDialog.getBoundingClientRect();
+  if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) birthdayDialog.close();
+});

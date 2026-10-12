@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Oswald:wght@500;600;700&family=Caveat:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=15" />
+  <link rel="stylesheet" href="style.css?v=17" />
 </head>
 <body>
   <main class="story">
@@ -85,7 +85,7 @@
 
       <p class="certificate reveal">Сам сертификат я пришлю тебе,<br>когда понадобится.</p>
 
-      <div class="sign reveal">С днем рождения,<br><span>детка!</span></div>
+      <button class="sign reveal birthday-message-trigger" id="birthday-message-open" type="button" aria-haspopup="dialog" aria-label="Открыть поздравление">С днем рождения,<br><span>детка!</span><i aria-hidden="true">⊕</i></button>
       <div class="year">♡ / 2026</div>
     </section>
 
@@ -134,6 +134,16 @@
     <p class="program-signoff">Остальное подождёт.</p>
     <button class="program-done" type="button">ЗВУЧИТ КАК ПЛАН</button>
   </dialog>
-  <script src="script.js?v=16"></script>
+  <dialog class="birthday-message-dialog" id="birthday-message-dialog" aria-labelledby="birthday-message-title">
+    <button class="dialog-close" type="button" aria-label="Закрыть поздравление">×</button>
+    <div class="dialog-label">BIRTHDAY EDITION / A TOAST</div>
+    <h2 id="birthday-message-title">За правильные<br>цвета в жизни.</h2>
+    <p class="birthday-colors">Пусть чёрными будут только кофе и татухи.<br>А пиво и будущее — светлыми.</p>
+    <div class="toast-rule" aria-hidden="true"></div>
+    <p>Желаю тебе, чтоб счастье догнало тебя раньше, чем ИИ придумает, как нас убить!</p>
+    <p class="birthday-toast-sign">С днём рождения, детка!</p>
+    <button class="birthday-toast-done" type="button">ЗА ЭТО И ВЫПЬЕМ</button>
+  </dialog>
+  <script src="script.js?v=17"></script>
 </body>
 </html>

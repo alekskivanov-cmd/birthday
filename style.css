@@ -197,3 +197,15 @@ button.slow{position:absolute}.sweet-title-button{position:relative}
 .world-quiet small{color:#aaa;font-size:13px}
 @keyframes quiet-appear{from{opacity:0}to{opacity:1}}
 @media(prefers-reduced-motion:reduce){.world-noise span{transition:none}.world-pause.is-paused .world-quiet{animation:none}}
+
+.birthday-message-trigger{padding:0;border:0;background:transparent;color:inherit;text-align:left;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.birthday-message-trigger i{position:absolute;right:-24px;top:8px;font:18px Inter,Arial,sans-serif}
+.birthday-message-trigger:focus-visible{outline:1px solid #aaa;outline-offset:6px}
+.birthday-message-dialog{width:min(90vw,460px);max-height:90svh;overflow:auto;padding:44px 28px 28px;border:1px solid #aaa;background:#090909;color:#f3f0e9;font-family:Inter,Arial,sans-serif;text-align:center;box-shadow:0 20px 90px #0008}
+.birthday-message-dialog::backdrop{background:#000c;backdrop-filter:blur(5px)}
+.birthday-message-dialog h2{font-size:clamp(25px,7vw,36px);line-height:1.1;letter-spacing:-.035em;margin:0 0 28px;font-weight:900}
+.birthday-message-dialog p{font-size:16px;line-height:1.55;margin:0 0 24px}
+.toast-rule{width:44px;border-top:1px solid #999;margin:24px auto}
+.birthday-message-dialog .birthday-toast-sign{font-weight:700;font-size:19px;margin:28px 0}
+.birthday-toast-done{width:100%;border:0;padding:15px;background:#f3f0e9;color:#111;font-size:11px;letter-spacing:.12em;cursor:pointer}
+.birthday-toast-done:focus-visible{outline:1px solid #aaa;outline-offset:4px}
