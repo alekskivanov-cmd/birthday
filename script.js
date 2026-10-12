@@ -71,7 +71,7 @@ ticket.addEventListener('click', () => {
     done.hidden = false;
     admissionShown = true;
     flipTicket();
-  }, 1300);
+  }, 2600);
 });
 // Other surprises keep their own neutral closing label.
 dialog.addEventListener('close', () => { done.textContent = 'ПРОДОЛЖИТЬ'; });
