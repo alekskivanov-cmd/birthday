@@ -148,3 +148,13 @@ button.slow{font-family:Narrow,Oswald,Impact,sans-serif;font-size:38cqw;font-wei
 .program-done{display:block;width:100%;padding:15px 10px;background:#111;color:#f2f0e9;border:0;font-size:10px;letter-spacing:.15em;cursor:pointer}
 .spa-program-dialog .dialog-close:focus-visible{outline-color:#555}
 .spa-program-trigger:focus-visible,.program-done:focus-visible{outline:1px solid currentColor;outline-offset:4px}
+
+/* Gentle size pulse, with no change in text brightness. */
+.panel.visible button.slow{animation:heading-size-pulse 4.5s ease-in-out infinite;animation-delay:0s;opacity:1}
+.sweet-title-button{display:block;border:0;padding:0;margin:0;background:transparent;color:inherit;font:inherit;line-height:inherit;letter-spacing:inherit;text-align:left;cursor:pointer;transform-origin:center center;animation:heading-size-pulse 4.5s ease-in-out infinite;-webkit-tap-highlight-color:transparent}
+.sweet-title-button:focus-visible{outline:1px solid currentColor;outline-offset:5px}
+@keyframes heading-size-pulse{0%,100%{scale:1}50%{scale:1.018}}
+.gift .spa{top:45%;font-size:2.4cqw}
+.gift .gift-copy{top:47%;font-size:4cqw;width:82%;line-height:1.28}
+.gift .ticket{top:56%;height:21%}
+@media(prefers-reduced-motion:reduce){.panel.visible button.slow,.sweet-title-button{animation:none;scale:1}}
