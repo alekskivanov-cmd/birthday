@@ -109,3 +109,20 @@ button.slow{font-family:Narrow,Oswald,Impact,sans-serif;font-size:38cqw;font-wei
 .vinyl-record{display:block;width:36px;height:36px;border-radius:50%;border:1px solid #999;background:radial-gradient(circle,#080808 0 2px,#ece8df 2.5px 7px,#181818 7.5px 9px,transparent 9.5px),repeating-radial-gradient(circle,#101010 0 1px,#333 1px 1.5px,#101010 1.5px 3px);box-shadow:0 2px 8px #0005}
 .vinyl-label{font:7px Arial,sans-serif;letter-spacing:.15em;color:#f1eee8;background:#111;padding:3px 5px}
 @media(prefers-reduced-motion:reduce){.text-secret,.panel.visible button.slow{animation:none}}
+
+/* Music button, small expanding rings and browser-neutral dialog close control. */
+.vinyl-decoration{pointer-events:auto;border:0;padding:9px;background:transparent;color:inherit;cursor:pointer;appearance:none;-webkit-appearance:none;-webkit-tap-highlight-color:transparent;right:max(5px,env(safe-area-inset-right));bottom:max(5px,env(safe-area-inset-bottom))}
+.vinyl-disc-wrap{position:relative;display:block;width:36px;height:36px}
+.vinyl-disc-wrap::before,.vinyl-disc-wrap::after{content:'';position:absolute;inset:-2px;border:1px solid #aaa;border-radius:50%;pointer-events:none;animation:vinyl-ripple 3s ease-out infinite}
+.vinyl-disc-wrap::after{animation-delay:1.5s}
+.vinyl-record{position:relative;z-index:1;animation:vinyl-spin 5s linear infinite;animation-play-state:paused}
+.vinyl-decoration.is-playing .vinyl-record{animation-play-state:running}
+.vinyl-decoration:focus{outline:none}.vinyl-decoration:focus-visible{outline:1px solid #bdbdbd;outline-offset:2px;border-radius:5px}
+@keyframes vinyl-ripple{0%{transform:scale(1);opacity:.7}85%,100%{transform:scale(1.55);opacity:0}}
+@keyframes vinyl-spin{to{transform:rotate(360deg)}}
+.dialog-close{appearance:none;-webkit-appearance:none;-webkit-tap-highlight-color:transparent;box-shadow:none;border:0;border-radius:50%;width:40px;height:40px;padding:0;line-height:40px;text-align:center}
+.dialog-close:focus,.dialog-close:active{outline:none;box-shadow:none;background:transparent}
+.dialog-close:focus-visible{outline:1px solid #aaa;outline-offset:2px}
+.music-status{position:fixed;right:16px;bottom:90px;z-index:20;max-width:240px;padding:10px;background:#111;color:#eee;font:12px Arial,sans-serif;border:1px solid #888}
+.music-status:empty{display:none}
+@media(prefers-reduced-motion:reduce){.vinyl-disc-wrap::before,.vinyl-disc-wrap::after,.vinyl-record{animation:none}}

@@ -66,3 +66,30 @@ ticket.addEventListener('click', () => {
 });
 // Other surprises keep their own neutral closing label.
 dialog.addEventListener('close', () => { done.textContent = 'ПРОДОЛЖИТЬ'; });
+
+const music = document.getElementById('birthday-music');
+const musicButton = document.getElementById('music-toggle');
+const musicLabel = musicButton.querySelector('.vinyl-label');
+const musicStatus = document.querySelector('.music-status');
+let musicStarting = false;
+function syncMusicButton() {
+  const playing = !music.paused && !music.ended;
+  musicButton.classList.toggle('is-playing', playing);
+  musicButton.setAttribute('aria-pressed', String(playing));
+  musicButton.setAttribute('aria-label', playing ? 'Поставить Scorpions — 321 на паузу' : 'Включить Scorpions — 321');
+  musicLabel.textContent = playing ? 'PAUSE' : 'PLAY';
+}
+musicButton.addEventListener('click', async () => {
+  if (musicStarting) return;
+  musicStatus.textContent = '';
+  if (!music.paused) { music.pause(); return; }
+  musicStarting = true;
+  try { await music.play(); }
+  catch (error) { musicStatus.textContent = 'Не удалось включить музыку. Попробуй нажать ещё раз.'; }
+  finally { musicStarting = false; syncMusicButton(); }
+});
+['play', 'pause', 'ended'].forEach(event => music.addEventListener(event, syncMusicButton));
+music.addEventListener('error', () => {
+  musicStatus.textContent = 'Музыка недоступна. Попробуй обновить страницу.';
+  syncMusicButton();
+});

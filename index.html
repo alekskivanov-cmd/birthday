@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Oswald:wght@500;600;700&family=Caveat:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=6" />
+  <link rel="stylesheet" href="style.css?v=8" />
 </head>
 <body>
   <main class="story">
@@ -89,7 +89,12 @@
     </section>
 
   </main>
-  <div class="vinyl-decoration" aria-hidden="true"><span class="vinyl-record"></span><span class="vinyl-label">SIDE A</span></div>
+  <button class="vinyl-decoration" id="music-toggle" type="button" aria-label="Включить Scorpions — 321" aria-pressed="false">
+    <span class="vinyl-disc-wrap" aria-hidden="true"><span class="vinyl-record"></span></span>
+    <span class="vinyl-label" aria-hidden="true">PLAY</span>
+  </button>
+  <audio id="birthday-music" src="assets/scorpions-321.mp3" preload="none" loop></audio>
+  <span class="music-status" role="status" aria-live="polite"></span>
   <dialog class="surprise-dialog" id="surprise-dialog" aria-labelledby="surprise-title">
     <button class="dialog-close" type="button" aria-label="Закрыть">×</button>
     <div class="dialog-label">BIRTHDAY EDITION / BONUS</div>
@@ -99,6 +104,6 @@
     <p class="breathing-note" hidden>Вдох — круг растёт.<br>Выдох — круг уменьшается.<br>Дыши в удобном для тебя темпе.</p>
     <button class="dialog-done" type="button">ПРОДОЛЖИТЬ</button>
   </dialog>
-  <script src="script.js?v=6"></script>
+  <script src="script.js?v=8"></script>
 </body>
 </html>
