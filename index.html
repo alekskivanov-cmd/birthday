@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Oswald:wght@500;600;700&family=Caveat:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=8" />
+  <link rel="stylesheet" href="style.css?v=9" />
 </head>
 <body>
   <main class="story">
@@ -71,6 +71,7 @@
       <div class="therefore reveal">П О Э Т О М У . . .</div>
       <h2 class="sweet reveal">SWEET<br>COFFEE</h2>
       <div class="spa">SPA COMPLEX</div>
+      <button class="spa-program-trigger" id="spa-program-open" type="button" aria-haspopup="dialog">ТВОИ 2,5 ЧАСА ОТДЫХА <span aria-hidden="true">↗</span></button>
 
       <p class="gift-copy reveal">Поэтому тебе в любой удобный день доступен СПА-комплекс “Sweet coffee”.</p>
 
@@ -104,6 +105,21 @@
     <p class="breathing-note" hidden>Вдох — круг растёт.<br>Выдох — круг уменьшается.<br>Дыши в удобном для тебя темпе.</p>
     <button class="dialog-done" type="button">ПРОДОЛЖИТЬ</button>
   </dialog>
-  <script src="script.js?v=8"></script>
+  <dialog class="spa-program-dialog" id="spa-program-dialog" aria-labelledby="spa-program-title">
+    <button class="dialog-close" type="button" aria-label="Закрыть описание программы">×</button>
+    <div class="program-eyebrow">SWEET COFFEE / SPA EXPERIENCE</div>
+    <h2 id="spa-program-title">Время<br>для себя.</h2>
+    <div class="program-duration">2,5 ЧАСА <span>без спешки</span></div>
+    <ol class="program-list">
+      <li><span class="program-number" aria-hidden="true">01</span><div><h3>Распаривание в сауне</h3><p>30 минут</p></div></li>
+      <li><span class="program-number" aria-hidden="true">02</span><div><h3>Кофейное скрабирование</h3></div></li>
+      <li><span class="program-number" aria-hidden="true">03</span><div><h3>Классический общий массаж</h3><p>60 минут</p></div></li>
+      <li><span class="program-number" aria-hidden="true">04</span><div><h3>Скульптурный массаж лица</h3><p>30 минут</p></div></li>
+      <li><span class="program-number" aria-hidden="true">05</span><div><h3>Чайная церемония</h3></div></li>
+    </ol>
+    <p class="program-signoff">Остальное подождёт.</p>
+    <button class="program-done" type="button">ЗВУЧИТ КАК ПЛАН</button>
+  </dialog>
+  <script src="script.js?v=9"></script>
 </body>
 </html>

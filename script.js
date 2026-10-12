@@ -93,3 +93,13 @@ music.addEventListener('error', () => {
   musicStatus.textContent = 'Музыка недоступна. Попробуй обновить страницу.';
   syncMusicButton();
 });
+
+const programDialog = document.getElementById('spa-program-dialog');
+document.getElementById('spa-program-open').addEventListener('click', () => programDialog.showModal());
+programDialog.querySelector('.dialog-close').addEventListener('click', () => programDialog.close());
+programDialog.querySelector('.program-done').addEventListener('click', () => programDialog.close());
+programDialog.addEventListener('click', e => {
+  if (e.target !== programDialog) return;
+  const r = programDialog.getBoundingClientRect();
+  if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) programDialog.close();
+});

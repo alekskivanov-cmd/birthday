@@ -126,3 +126,25 @@ button.slow{font-family:Narrow,Oswald,Impact,sans-serif;font-size:38cqw;font-wei
 .music-status{position:fixed;right:16px;bottom:90px;z-index:20;max-width:240px;padding:10px;background:#111;color:#eee;font:12px Arial,sans-serif;border:1px solid #888}
 .music-status:empty{display:none}
 @media(prefers-reduced-motion:reduce){.vinyl-disc-wrap::before,.vinyl-disc-wrap::after,.vinyl-record{animation:none}}
+
+/* A discreet program link beneath the large gift title. */
+.gift .spa{top:44%;font-size:1.8cqw}
+.spa-program-trigger{position:absolute;top:46%;left:8%;z-index:11;border:0;border-bottom:1px solid #aaa;background:transparent;color:#f3f0e9;padding:4px 0;font:500 2.4cqw Inter,Arial,sans-serif;letter-spacing:.11em;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.spa-program-trigger span{display:inline-block;margin-left:10px;font-size:3.3cqw}
+.gift .gift-copy{top:50%;font-size:3.6cqw;width:84%;line-height:1.25}
+.gift .ticket{top:58%;height:18%}
+.spa-program-dialog{width:min(90vw,470px);max-height:90svh;overflow:auto;border:1px solid #bbb;padding:38px 28px 26px;background:#f2f0e9;color:#111;font-family:Inter,Arial,sans-serif;box-shadow:0 20px 90px #0009}
+.spa-program-dialog::backdrop{background:#000c;backdrop-filter:blur(5px)}
+.program-eyebrow{font-size:9px;letter-spacing:.17em;padding-right:24px;line-height:1.6;margin-bottom:22px}
+.spa-program-dialog h2{font-size:clamp(38px,11vw,58px);font-weight:900;line-height:.95;letter-spacing:-.05em;margin:0 0 18px}
+.program-duration{font-size:12px;font-weight:700;letter-spacing:.14em;margin-bottom:24px}
+.program-duration span{font-size:12px;font-weight:400;letter-spacing:0;margin-left:12px;color:#666}
+.program-list{list-style:none;padding:0;margin:0;border-top:1px solid #aaa}
+.program-list li{display:flex;gap:15px;align-items:flex-start;padding:15px 0;border-bottom:1px solid #ccc}
+.program-number{font-size:11px;letter-spacing:.12em;color:#666;padding-top:3px;min-width:22px}
+.program-list h3{font-size:15px;font-weight:500;line-height:1.3;margin:0}
+.program-list p{font-size:11px;letter-spacing:.03em;color:#666;margin:5px 0 0}
+.program-signoff{font-family:Caveat,cursive;font-size:28px;line-height:1.2;margin:22px 0;text-align:center}
+.program-done{display:block;width:100%;padding:15px 10px;background:#111;color:#f2f0e9;border:0;font-size:10px;letter-spacing:.15em;cursor:pointer}
+.spa-program-dialog .dialog-close:focus-visible{outline-color:#555}
+.spa-program-trigger:focus-visible,.program-done:focus-visible{outline:1px solid currentColor;outline-offset:4px}
