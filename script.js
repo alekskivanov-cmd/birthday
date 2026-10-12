@@ -19,6 +19,7 @@ function openSurprise(heading, message, breathing = false) {
   orbit.hidden = !breathing;
   note.hidden = !breathing;
   done.hidden = false;
+  document.getElementById('world-pause').hidden = true;
   dialog.classList.toggle('breathing-mode', breathing);
   dialog.showModal();
 }
@@ -38,7 +39,13 @@ document.getElementById('ai-secret').addEventListener('click', () => {
   openSurprise('СЕКРЕТНЫЙ ПРОТОКОЛ', 'План уничтожения человечества отложен. Сегодня у неё день рождения.');
 });
 document.getElementById('slow-mode').addEventListener('click', () => {
-  openSurprise('SLOW DOWN.', 'Вдох. Выдох. Остальное подождёт.', true);
+  openSurprise('SLOW DOWN.', 'Не обязательно успевать всё.');
+  const world = document.getElementById('world-pause');
+  world.classList.remove('is-paused');
+  world.hidden = false;
+  world.querySelector('.world-noise').hidden = false;
+  world.querySelector('.world-pause-button').hidden = false;
+  done.hidden = true;
 });
 
 const ticket = document.getElementById('ticket');
@@ -121,3 +128,18 @@ document.getElementById('discovery-dismiss').addEventListener('click', dismissDi
 ['ai-secret', 'slow-mode', 'spa-program-open'].forEach(id => {
   document.getElementById(id).addEventListener('click', dismissDiscoveryTip);
 });
+
+const worldPause = document.getElementById('world-pause');
+let worldPauseTimer;
+worldPause.querySelector('.world-pause-button').addEventListener('click', () => {
+  worldPause.classList.add('is-paused');
+  worldPause.querySelector('.world-pause-button').hidden = true;
+  copy.textContent = '';
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  worldPauseTimer = setTimeout(() => {
+    worldPause.querySelector('.world-noise').hidden = true;
+    done.textContent = 'ПОБУДУ ЗДЕСЬ ЕЩЁ НЕМНОГО';
+    done.hidden = false;
+  }, reduced ? 0 : 900);
+});
+dialog.addEventListener('close', () => clearTimeout(worldPauseTimer));

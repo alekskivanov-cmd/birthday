@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Oswald:wght@500;600;700&family=Caveat:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=14" />
+  <link rel="stylesheet" href="style.css?v=15" />
 </head>
 <body>
   <main class="story">
@@ -105,6 +105,16 @@
     <div class="dialog-label">BIRTHDAY EDITION / BONUS</div>
     <h2 id="surprise-title"></h2>
     <p id="surprise-copy" aria-live="polite"></p>
+    <div class="world-pause" id="world-pause" hidden>
+      <div class="world-noise" aria-hidden="true">
+        <span>РАБОЧИЙ ЧАТ · 12 новых сообщений</span>
+        <span>ДЕДЛАЙН · желательно ещё вчера</span>
+        <span>СПИСОК ДЕЛ · ещё один пункт</span>
+        <span>НАПОМИНАНИЕ · надо всё успеть</span>
+      </div>
+      <button class="world-pause-button" type="button">Ⅱ &nbsp; ПОСТАВИТЬ МИР НА ПАУЗУ</button>
+      <div class="world-quiet" role="status"><span class="quiet-symbol" aria-hidden="true">Ⅱ</span><p>Сейчас — только ты.</p><small>Всё остальное подождёт.</small></div>
+    </div>
     <div class="breathing-orbit" hidden><div class="breathing-circle"></div></div>
     <p class="breathing-note" hidden>Вдох — круг растёт.<br>Выдох — круг уменьшается.<br>Дыши в удобном для тебя темпе.</p>
     <button class="dialog-done" type="button">ПРОДОЛЖИТЬ</button>
@@ -124,6 +134,6 @@
     <p class="program-signoff">Остальное подождёт.</p>
     <button class="program-done" type="button">ЗВУЧИТ КАК ПЛАН</button>
   </dialog>
-  <script src="script.js?v=12"></script>
+  <script src="script.js?v=15"></script>
 </body>
 </html>

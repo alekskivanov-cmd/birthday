@@ -183,3 +183,17 @@ button.slow{position:absolute}.sweet-title-button{position:relative}
 /* Keep both upper captions above the leaf decoration. */
 .gift .therefore{z-index:11;letter-spacing:.16em}
 .program-top-label{position:relative;display:block;flex-shrink:0;color:inherit;opacity:1}
+
+/* Put the outside world on pause. */
+.world-noise{display:flex;flex-direction:column;gap:10px;margin:8px 0 24px;text-align:left}
+.world-noise span{display:block;border:1px solid #555;padding:13px 12px;background:#1a1a1a;font-size:11px;line-height:1.5;color:#c6c6c6;transition:opacity .65s ease,transform .8s ease,filter .8s ease}
+.world-noise span:nth-child(2){transition-delay:.08s}.world-noise span:nth-child(3){transition-delay:.16s}.world-noise span:nth-child(4){transition-delay:.24s}
+.world-pause.is-paused .world-noise span{opacity:0;transform:translateY(-12px) scale(.92);filter:blur(4px)}
+.world-pause-button{width:100%;padding:16px 10px;background:#f3f0e9;color:#111;border:0;font-size:10px;letter-spacing:.09em;cursor:pointer}
+.world-quiet{display:none;padding:10px 0 30px}
+.world-pause.is-paused .world-quiet{display:block;animation:quiet-appear 1.2s ease both}
+.quiet-symbol{display:block;font-size:38px;color:#aaa;margin:8px 0 24px}
+.surprise-dialog .world-quiet p{font-size:25px;font-weight:500;margin-bottom:12px}
+.world-quiet small{color:#aaa;font-size:13px}
+@keyframes quiet-appear{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.world-noise span{transition:none}.world-pause.is-paused .world-quiet{animation:none}}
