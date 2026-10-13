@@ -53,6 +53,8 @@ const hint = document.querySelector('.ticket-hint');
 function flipTicket() {
   const flipped = ticket.classList.toggle('is-flipped');
   document.getElementById('save-certificate').hidden = !flipped;
+  if (flipped) certificateSeen = true;
+  scheduleDiscovery();
   document.querySelector('.certificate').hidden = flipped;
   ticket.setAttribute('aria-pressed', String(flipped));
   ticket.setAttribute('aria-label', flipped ? 'Вернуть билет' : 'Показать сертификат');
@@ -114,19 +116,45 @@ programDialog.addEventListener('click', e => {
 });
 
 const discoveryTip = document.getElementById('discovery-tip');
-const discoveryKey = 'birthday-surprises-discovered-v1';
-let tipDismissed = false;
-try { tipDismissed = localStorage.getItem(discoveryKey) === 'yes'; } catch (_) {}
-const discoveryTimer = setTimeout(() => { if (!tipDismissed) discoveryTip.hidden = false; }, 1800);
-function dismissDiscoveryTip() {
-  tipDismissed = true;
-  clearTimeout(discoveryTimer);
-  discoveryTip.hidden = true;
-  try { localStorage.setItem(discoveryKey, 'yes'); } catch (_) {}
+const discoveredSecrets = new Set();
+const secretIds = ['ai-secret', 'slow-mode', 'spa-program-open', 'birthday-message-open'];
+let discoveryShown = false;
+let giftInView = false;
+let certificateSeen = false;
+let discoveryTimer;
+function trackDiscovery(id) {
+  discoveredSecrets.add(id);
+  if (discoveredSecrets.size === secretIds.length) clearTimeout(discoveryTimer);
 }
-document.getElementById('discovery-dismiss').addEventListener('click', dismissDiscoveryTip);
-['ai-secret', 'slow-mode', 'spa-program-open'].forEach(id => {
-  document.getElementById(id).addEventListener('click', dismissDiscoveryTip);
+function scheduleDiscovery() {
+  clearTimeout(discoveryTimer);
+  if (discoveryShown || !certificateSeen || !giftInView || discoveredSecrets.size === secretIds.length) return;
+  discoveryTimer = setTimeout(() => {
+    if (discoveryShown || !certificateSeen || !giftInView || discoveredSecrets.size === secretIds.length) return;
+    if (document.querySelector('dialog[open]') || document.hidden) return;
+    discoveryShown = true;
+    discoveryTip.showModal();
+  }, 4000);
+}
+const discoveryObserver = new IntersectionObserver(entries => {
+  giftInView = entries[0].isIntersecting;
+  scheduleDiscovery();
+}, { threshold: .65 });
+discoveryObserver.observe(document.getElementById('gift'));
+secretIds.forEach(id => document.getElementById(id).addEventListener('click', () => trackDiscovery(id)));
+document.querySelectorAll('dialog').forEach(modal => modal.addEventListener('close', scheduleDiscovery));
+document.addEventListener('visibilitychange', scheduleDiscovery);
+document.getElementById('discovery-dismiss').addEventListener('click', () => discoveryTip.close());
+document.getElementById('discovery-search').addEventListener('click', () => {
+  discoveryTip.close();
+  document.getElementById('intro').scrollIntoView({
+    behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+  });
+});
+discoveryTip.addEventListener('click', e => {
+  if (e.target !== discoveryTip) return;
+  const r = discoveryTip.getBoundingClientRect();
+  if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) discoveryTip.close();
 });
 
 const worldPause = document.getElementById('world-pause');
@@ -147,7 +175,6 @@ dialog.addEventListener('close', () => clearTimeout(worldPauseTimer));
 const birthdayDialog = document.getElementById('birthday-message-dialog');
 document.getElementById('birthday-message-open').addEventListener('click', () => {
   birthdayDialog.showModal();
-  dismissDiscoveryTip();
 });
 birthdayDialog.querySelector('.dialog-close').addEventListener('click', () => birthdayDialog.close());
 birthdayDialog.querySelector('.birthday-toast-done').addEventListener('click', () => birthdayDialog.close());

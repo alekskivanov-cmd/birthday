@@ -209,3 +209,12 @@ button.slow{position:absolute}.sweet-title-button{position:relative}
 .birthday-message-dialog .birthday-toast-sign{font-weight:700;font-size:19px;margin:28px 0}
 .birthday-toast-done{width:100%;border:0;padding:15px;background:#f3f0e9;color:#111;font-size:11px;letter-spacing:.12em;cursor:pointer}
 .birthday-toast-done:focus-visible{outline:1px solid #aaa;outline-offset:4px}
+
+/* Discovery comes after the gift, as a centered encore. */
+.discovery-dialog{width:min(88vw,440px);max-height:88svh;overflow:auto;padding:44px 28px 28px;border:1px solid #aaa;background:#090909;color:#f3f0e9;text-align:center;font-family:Inter,Arial,sans-serif;box-shadow:0 20px 90px #0008}
+.discovery-dialog::backdrop{background:#000c;backdrop-filter:blur(5px)}
+.discovery-dialog h2{font-size:clamp(28px,8vw,38px);line-height:1.1;letter-spacing:-.04em;margin:0 0 25px}
+.discovery-dialog p{font-size:16px;line-height:1.5;margin:0 0 22px}
+.discovery-dialog p b{font-size:22px;vertical-align:middle}
+.discovery-search{width:100%;border:0;background:#f3f0e9;color:#111;padding:15px;font-size:11px;letter-spacing:.12em;cursor:pointer}
+.discovery-search:focus-visible{outline:1px solid #aaa;outline-offset:4px}

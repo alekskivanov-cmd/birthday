@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Oswald:wght@500;600;700&family=Caveat:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=17" />
+  <link rel="stylesheet" href="style.css?v=18" />
 </head>
 <body>
   <main class="story">
@@ -96,10 +96,14 @@
   </button>
   <audio id="birthday-music" src="assets/scorpions-321.mp3" preload="none" loop></audio>
   <span class="music-status" role="status" aria-live="polite"></span>
-  <aside class="discovery-tip" id="discovery-tip" aria-label="Подсказка" hidden>
-    <span>Здесь есть кое-что ещё.<br>Ищи <b>⊕</b></span>
-    <button id="discovery-dismiss" type="button" aria-label="Скрыть подсказку">×</button>
-  </aside>
+  <dialog class="discovery-dialog" id="discovery-tip" aria-labelledby="discovery-title">
+    <button class="dialog-close" id="discovery-dismiss" type="button" aria-label="Закрыть подсказку">×</button>
+    <div class="dialog-label">BIRTHDAY EDITION / ENCORE</div>
+    <h2 id="discovery-title">Это ещё не всё.</h2>
+    <p>На этих трёх экранах спрятаны маленькие сюрпризы.</p>
+    <p>Вернись к началу и нажимай на надписи со знаком <b>⊕</b>.</p>
+    <button class="discovery-search" id="discovery-search" type="button">ПОЙДУ ИСКАТЬ</button>
+  </dialog>
   <dialog class="surprise-dialog" id="surprise-dialog" aria-labelledby="surprise-title">
     <button class="dialog-close" type="button" aria-label="Закрыть">×</button>
     <div class="dialog-label">BIRTHDAY EDITION / BONUS</div>
@@ -144,6 +148,6 @@
     <p class="birthday-toast-sign">С днём рождения, детка!</p>
     <button class="birthday-toast-done" type="button">ЗА ЭТО И ВЫПЬЕМ</button>
   </dialog>
-  <script src="script.js?v=17"></script>
+  <script src="script.js?v=19"></script>
 </body>
 </html>
